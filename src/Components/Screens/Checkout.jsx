@@ -1,9 +1,13 @@
 import { useDispatch, useSelector } from "react-redux";
+import swal from "sweetalert";
 
 function Checkout() {
   const carts = useSelector((state) => state.cart.cartItems);
-  const totalQty = useSelector((state) => state.cart.totalQuantity);
   const dispatch = useDispatch();
+
+  const placeOrder = () => {
+    swal("Success!", "Your order has been placed successfully!", "success");
+  };
   return (
     <>
       <div className="header-empty-space" />
@@ -306,13 +310,7 @@ function Checkout() {
             </div>
             <div className="empty-space col-xs-b50" />
             <h4 className="h4 col-xs-b25">payment method</h4>
-            <select className="SlectBox">
-              <option selected="selected">PayPal</option>
-              <option value="volvo">Volvo</option>
-              <option value="saab">Saab</option>
-              <option value="mercedes">Mercedes</option>
-              <option value="audi">Audi</option>
-            </select>
+
             <div className="empty-space col-xs-b10" />
             <div className="simple-article size-2">
               * Etiam mollis tristique mi ac ultrices. Morbi vel neque eget
@@ -320,7 +318,7 @@ function Checkout() {
               ante vehicula ociis natoq.
             </div>
             <div className="empty-space col-xs-b30" />
-            <div className="button block size-2 style-3">
+            <div onClick={placeOrder} className="button block size-2 style-3">
               <span className="button-wrapper">
                 <span className="icon">
                   <img src="img/icon-4.png" alt="" />

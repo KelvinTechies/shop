@@ -24,6 +24,7 @@ const loadFromLocalStorage = () => {
 
 const initialState = loadFromLocalStorage() || {
   cartItems: [],
+  totalQuantity: 0,
 };
 const cartSlice = createSlice({
   name: "cart",
